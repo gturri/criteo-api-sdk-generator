@@ -44,13 +44,8 @@ jobs:
         run: |
           git config --global user.name "update-oas-bot"
           git config --global user.email "update-oas-bot]@users.noreply.github.com"
-          git checkout -b update-oas-$(date --rfc-3339=date)
           git commit -m "Update OAS for Preview"
-          git push origin update-oas-$(date --rfc-3339=date)
-
-      - name: Create pull request on main
-        if: steps.check_changes.outputs.has_changes == 'true'
-        run: gh pr create --base main --head update-oas-$(date --rfc-3339=date) --title "Update OAS for Preview" --body "Auto-update of OAS for Preview. This PR will be automatically closed during the next automatic update" --label "oas auto-update"
+          git push origin HEAD:main
         env:
           GH_TOKEN: ${{ github.token }}
 
@@ -64,7 +59,7 @@ jobs:
             status: "${{ job.status }}"
             channel: "C02J0CWR789"
             username: "sdk-generation-bot"
-            text: "Autoupdate of OAS in Preview. Please check <https://github.com/criteo/criteo-api-sdk-generator/pulls|opened PRs> to validate the change, and publish the artifacts <!subteam^S07BSM1MDN2>. Autoupdate of OAS in preview runs weekly on Monday."
+            text: "Autoupdate of OAS in Preview. Autoupdate of OAS in preview runs weekly on Monday."
             icon_emoji: ":bell:"
             
       - name: Send failure notification
@@ -77,5 +72,5 @@ jobs:
             status: "${{ job.status }}"
             channel: "C02J0CWR789"
             username: "sdk-generation-bot"
-            text: "Autoupdate of OAS in Preview failure, check <https://github.com/criteo/criteo-api-sdk-generator/actions|action results>."
+            text: "Autoupdate of OAS in Preview failure, check <https://github.com/criteo/criteo-api-sdk-generator/actions|action results>. <!subteam^S07BSM1MDN2>."
             icon_emoji: ":x:"
