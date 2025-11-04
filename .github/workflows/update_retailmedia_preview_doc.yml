@@ -28,6 +28,7 @@ jobs:
           git config --global user.name "update-oas-bot"
           git config --global user.email "update-oas[bot]@users.noreply.github.com"
           git commit -m "OAS auto-update"
+          git show
           git push origin $PREVIEW_BRANCH
         env:
           GH_TOKEN: ${{ github.token }}
