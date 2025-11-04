@@ -16,7 +16,7 @@ jobs:
 
       - name: Commit and push Preview OAS
         run: |
-          git clone git@github.com:criteo/retail-media-public-api-doc.git
+          git clone git@github.com:gturri/retail-media-public-api-doc.git
           cd retail-media-public-api-doc
           PREVIEW_BRANCH=$(git branch -a | grep preview | cut -d '/' -f3)
           git checkout $PREVIEW_BRANCH
@@ -38,7 +38,7 @@ jobs:
           webhook-type: incoming-webhook
           payload: |
             status: "${{ job.status }}"
-            channel: "C02J0CWR789"
+            channel: "C07TD63G5V5"
             username: "sdk-generation-bot"
             text: "Autoupdate of RetailMedia Preview OAS in Readme repo."
             icon_emoji: ":bell:"
@@ -51,7 +51,7 @@ jobs:
           webhook-type: incoming-webhook
           payload: |
             status: "${{ job.status }}"
-            channel: "C02J0CWR789"
+            channel: "C07TD63G5V5"
             username: "sdk-generation-bot"
-            text: "Autoupdate of RetailMedia Preview OAS in Readme repo failure, check <https://github.com/criteo/criteo-api-sdk-generator/actions|action results>. <!subteam^S07BSM1MDN2>."
+            text: "Autoupdate of RetailMedia Preview OAS in Readme repo failure, check <https://github.com/criteo/criteo-api-sdk-generator/actions|action results>.."
             icon_emoji: ":x:"
