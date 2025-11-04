@@ -16,7 +16,9 @@ jobs:
 
       - name: Commit and push Preview OAS
         run: |
-          git clone git@github.com:gturri/retail-media-public-api-doc.git
+          echo $GITHUB_WORKSPACE
+          git clone https://github.com/gturri/retail-media-public-api-doc.git
+          #git clone git@github.com:gturri/retail-media-public-api-doc.git
           cd retail-media-public-api-doc
           PREVIEW_BRANCH=$(git branch -a | grep preview | cut -d '/' -f3)
           git checkout $PREVIEW_BRANCH
