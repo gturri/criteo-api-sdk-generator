@@ -18,6 +18,7 @@ jobs:
         run: |
           echo $GITHUB_WORKSPACE
           echo $GITHUB_ACTOR
+          echo "** $CI **"
           git clone https://github.com/gturri/retail-media-public-api-doc.git
           #git clone git@github.com:gturri/retail-media-public-api-doc.git
           cd retail-media-public-api-doc
