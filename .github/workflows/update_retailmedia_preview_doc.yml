@@ -17,6 +17,7 @@ jobs:
       - name: Commit and push Preview OAS
         run: |
           echo $GITHUB_WORKSPACE
+          echo $GITHUB_ACTOR
           git clone https://github.com/gturri/retail-media-public-api-doc.git
           #git clone git@github.com:gturri/retail-media-public-api-doc.git
           cd retail-media-public-api-doc
@@ -28,7 +29,7 @@ jobs:
           git config --global user.name "update-oas-bot"
           git config --global user.email "update-oas[bot]@users.noreply.github.com"
           git commit -m "OAS auto-update"
-          git show
+          #git show
           git push origin $PREVIEW_BRANCH
         env:
           GH_TOKEN: ${{ github.token }}
